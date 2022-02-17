@@ -35,4 +35,40 @@ describe("#wordSearch()", function() {
 
     assert.isTrue(result);
   });
+
+  it("should return true if the word is present vertical", function() {
+    const result = wordSearch([
+      ['A', 'W', 'C', 'L', 'Q', 'U', 'A', 'L'],
+      ['S', 'E', 'I', 'A', 'F', 'E', 'L', 'D'],
+      ['Y', 'F', 'C', 'R', 'Q', 'U', 'A', 'L'],
+      ['H', 'M', 'J', 'R', 'E', 'V', 'R', 'G'],
+      ['W', 'H', 'C', 'Y', 'Y', 'E', 'R', 'L'],
+      ['B', 'F', 'R', 'E', 'N', 'E', 'Y', 'B'],
+      ['U', 'B', 'T', 'W', 'A', 'P', 'A', 'I'],
+      ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
+      ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
+    ], 'LARRY')
+
+    assert.isTrue(result);
+  });
+  it("should return true if the word is not present vertically", function() {
+    const result = wordSearch([
+      ['A', 'W', 'C', 'L', 'Q', 'U', 'A', 'L'],
+      ['S', 'E', 'I', 'F', 'F', 'E', 'L', 'D'],
+      ['Y', 'F', 'C', 'R', 'Q', 'U', 'A', 'L'],
+      ['H', 'M', 'J', 'R', 'E', 'V', 'R', 'G'],
+      ['W', 'H', 'C', 'D', 'Y', 'E', 'R', 'L'],
+      ['B', 'F', 'R', 'E', 'N', 'E', 'Y', 'B'],
+      ['U', 'B', 'T', 'W', 'A', 'P', 'A', 'I'],
+      ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
+      ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
+    ], 'LARRYSMITH')
+
+    assert.isFalse(result);
+  });
+  it("should return false if the array is empty", function() {
+    const result = wordSearch([], 'LARRY')
+
+    assert.isFalse(result);
+  });
 });
